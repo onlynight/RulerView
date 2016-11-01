@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FreeMeasureView">
+        <attr name="line_type" format="enum">
+            <enum name="dash_line" value="1"/>
+            <enum name="line" value="2"/>
+        </attr>
+        <attr name="dash_line_blank" format="dimension"/>
+        <attr name="line_height" format="dimension"/>
+        <attr name="line_color" format="color"/>
+        <attr name="ruler_color" format="color"/>
+        <attr name="ruler_line_height" format="dimension"/>
+        <attr name="measure_text_size" format="dimension"/>
+        <attr name="measure_text_color" format="color"/>
+        <attr name="measure_ruler_width" format="dimension"/>
+        <attr name="measure_ruler_scale_width" format="dimension"/>
+        <attr name="measure_icon_size" format="dimension"/>
+    </declare-styleable>
+
+</resources>
