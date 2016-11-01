@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="FreeMeasureView">
+    <declare-styleable name="RulerSurfaceView">
         <attr name="line_type" format="enum">
             <enum name="dash_line" value="1"/>
             <enum name="line" value="2"/>

@@ -26,7 +26,7 @@ import java.util.List;
  * Created by lion on 2016/10/25.
  */
 
-public class FreeMeasureSurfaceView extends SurfaceView implements
+public class RulerSurfaceView extends SurfaceView implements
         SurfaceHolder.Callback, Runnable {
 
     public static final int LINE_TYPE_DASH_LINE = 1;
@@ -88,19 +88,19 @@ public class FreeMeasureSurfaceView extends SurfaceView implements
         this.onMeasureBtnListener = onMeasureBtnListener;
     }
 
-    public FreeMeasureSurfaceView(Context context) {
+    public RulerSurfaceView(Context context) {
         super(context);
         init(null);
     }
 
-    public FreeMeasureSurfaceView(Context context, AttributeSet attrs) {
+    public RulerSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
                 R.styleable.FreeMeasureView);
         init(typedArray);
     }
 
-    public FreeMeasureSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RulerSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
                 R.styleable.FreeMeasureView, defStyleAttr, 0);
@@ -114,23 +114,23 @@ public class FreeMeasureSurfaceView extends SurfaceView implements
         surfaceHolder.addCallback(this);
         drawThread = new Thread(this);
 
-        lineHeight = typedArray.getDimension(R.styleable.FreeMeasureView_line_height,
+        lineHeight = typedArray.getDimension(R.styleable.RulerSurfaceView_line_height,
                 Tools.dp2px(getContext(), 1));
-        rulerLineHeight = typedArray.getDimension(R.styleable.FreeMeasureView_ruler_line_height,
+        rulerLineHeight = typedArray.getDimension(R.styleable.RulerSurfaceView_ruler_line_height,
                 Tools.dp2px(getContext(), 2));
-        lineType = typedArray.getInt(R.styleable.FreeMeasureView_line_type, LINE_TYPE_DASH_LINE);
-        lineColor = typedArray.getColor(R.styleable.FreeMeasureView_line_color, Color.WHITE);
-        rulerColor = typedArray.getColor(R.styleable.FreeMeasureView_ruler_color, Color.WHITE);
-        dashLineBlank = typedArray.getDimension(R.styleable.FreeMeasureView_dash_line_blank,
+        lineType = typedArray.getInt(R.styleable.RulerSurfaceView_line_type, LINE_TYPE_DASH_LINE);
+        lineColor = typedArray.getColor(R.styleable.RulerSurfaceView_line_color, Color.WHITE);
+        rulerColor = typedArray.getColor(R.styleable.RulerSurfaceView_ruler_color, Color.WHITE);
+        dashLineBlank = typedArray.getDimension(R.styleable.RulerSurfaceView_dash_line_blank,
                 Tools.dp2px(getContext(), DASH_LINE_BLANK_DEFAULT));
         rulerWidth = typedArray.getDimension(
-                R.styleable.FreeMeasureView_measure_ruler_width,
+                R.styleable.RulerSurfaceView_measure_ruler_width,
                 Tools.dp2px(getContext(), RULER_WIDTH));
         rulerScaleWidth = typedArray.getDimension(
-                R.styleable.FreeMeasureView_measure_ruler_scale_width,
+                R.styleable.RulerSurfaceView_measure_ruler_scale_width,
                 Tools.dp2px(getContext(), RULER_SCALE_WIDTH));
         measureIconSize = typedArray.getDimension(
-                R.styleable.FreeMeasureView_measure_icon_size,
+                R.styleable.RulerSurfaceView_measure_icon_size,
                 Tools.dp2px(getContext(), MEASURE_ICON_SIZE));
 
         initMeasureBtnRect();

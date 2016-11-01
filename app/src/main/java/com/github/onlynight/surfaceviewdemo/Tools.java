@@ -21,7 +21,7 @@ import java.util.List;
 public class Tools {
 
     public static Point getDisplaySize() {
-        DisplayMetrics displayMetrics = SurfaceApplication.getContext().getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = RulerApplication.getContext().getResources().getDisplayMetrics();
         Point displaySize = new Point();
         displaySize.x = displayMetrics.widthPixels;
         displaySize.y = displayMetrics.heightPixels;
@@ -43,7 +43,7 @@ public class Tools {
             return;
         }
 
-        Toast.makeText(SurfaceApplication.getContext(), text, Toast.LENGTH_SHORT).show();
+        Toast.makeText(RulerApplication.getContext(), text, Toast.LENGTH_SHORT).show();
     }
 
     /**

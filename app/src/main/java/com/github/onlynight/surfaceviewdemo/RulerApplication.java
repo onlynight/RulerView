@@ -7,7 +7,7 @@ import android.content.Context;
  * Created by lion on 2016/10/25.
  */
 
-public class SurfaceApplication extends Application {
+public class RulerApplication extends Application {
 
     private static Context context;
 
