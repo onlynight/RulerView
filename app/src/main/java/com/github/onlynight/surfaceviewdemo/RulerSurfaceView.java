@@ -115,23 +115,23 @@ public class RulerSurfaceView extends SurfaceView implements
         drawThread = new Thread(this);
 
         lineHeight = typedArray.getDimension(R.styleable.RulerSurfaceView_line_height,
-                Tools.dp2px(getContext(), 1));
+                dp2px(getContext(), 1));
         rulerLineHeight = typedArray.getDimension(R.styleable.RulerSurfaceView_ruler_line_height,
-                Tools.dp2px(getContext(), 2));
+                dp2px(getContext(), 2));
         lineType = typedArray.getInt(R.styleable.RulerSurfaceView_line_type, LINE_TYPE_DASH_LINE);
         lineColor = typedArray.getColor(R.styleable.RulerSurfaceView_line_color, Color.WHITE);
         rulerColor = typedArray.getColor(R.styleable.RulerSurfaceView_ruler_color, Color.WHITE);
         dashLineBlank = typedArray.getDimension(R.styleable.RulerSurfaceView_dash_line_blank,
-                Tools.dp2px(getContext(), DASH_LINE_BLANK_DEFAULT));
+                dp2px(getContext(), DASH_LINE_BLANK_DEFAULT));
         rulerWidth = typedArray.getDimension(
                 R.styleable.RulerSurfaceView_measure_ruler_width,
-                Tools.dp2px(getContext(), RULER_WIDTH));
+                dp2px(getContext(), RULER_WIDTH));
         rulerScaleWidth = typedArray.getDimension(
                 R.styleable.RulerSurfaceView_measure_ruler_scale_width,
-                Tools.dp2px(getContext(), RULER_SCALE_WIDTH));
+                dp2px(getContext(), RULER_SCALE_WIDTH));
         measureIconSize = typedArray.getDimension(
                 R.styleable.RulerSurfaceView_measure_icon_size,
-                Tools.dp2px(getContext(), MEASURE_ICON_SIZE));
+                dp2px(getContext(), MEASURE_ICON_SIZE));
 
         initMeasureBtnRect();
     }
@@ -139,8 +139,8 @@ public class RulerSurfaceView extends SurfaceView implements
     private void initMeasureBtnRect() {
         int width = getWidth();
         if (width > 0) {
-            float left = width - Tools.dp2px(getContext(), MEASURE_BTN_START_X);
-            float top = Tools.dp2px(getContext(), MEASURE_BTN_START_Y);
+            float left = width - dp2px(getContext(), MEASURE_BTN_START_X);
+            float top = dp2px(getContext(), MEASURE_BTN_START_Y);
             measureBtn1Pos.x = (int) left;
             measureBtn1Pos.y = (int) top;
 
@@ -605,5 +605,10 @@ public class RulerSurfaceView extends SurfaceView implements
         public Point inArea;
         public Point deltaPoint = new Point(0, 0);
         public int pointerId = INVALID_POINTER_ID;
+    }
+
+    public static int dp2px(Context context, int dp) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
     }
 }

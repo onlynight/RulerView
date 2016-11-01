@@ -2,13 +2,8 @@ package com.github.onlynight.surfaceviewdemo;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.graphics.Point;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
@@ -19,67 +14,6 @@ import java.util.List;
  * Created by zhang on 2016/1/12 0012.
  */
 public class Tools {
-
-    public static Point getDisplaySize() {
-        DisplayMetrics displayMetrics = RulerApplication.getContext().getResources().getDisplayMetrics();
-        Point displaySize = new Point();
-        displaySize.x = displayMetrics.widthPixels;
-        displaySize.y = displayMetrics.heightPixels;
-        return displaySize;
-    }
-
-    public static int dp2px(Context context, int dp) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
-    }
-
-    public static int px2dp(Context context, int pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
-
-    public static void toast(String text) {
-        if (TextUtils.isEmpty(text)) {
-            return;
-        }
-
-        Toast.makeText(RulerApplication.getContext(), text, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * 将px值转换为sp值，保证文字大小不变
-     *
-     * @param pxValue
-     * @return
-     */
-    public static int px2sp(Context context, float pxValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return (int) (pxValue / fontScale + 0.5f);
-    }
-
-    /**
-     * 将sp值转换为px值，保证文字大小不变
-     *
-     * @param spValue
-     * @return
-     */
-    public static int sp2px(Context context, float spValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return (int) (spValue * fontScale + 0.5f);
-    }
-
-    public static Bitmap rotateBitmap(Bitmap source, float angle) {
-        return rotateBitmap(source, angle, 1f);
-    }
-
-    public static Bitmap rotateBitmap(Bitmap source, float angle, float scale) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(angle);
-        matrix.postScale(scale, scale);
-        Bitmap result = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, false);
-        source.recycle();
-        return result;
-    }
 
     public static boolean checkDeviceHasNavigationBar(Context context) {
         boolean hasNavigationBar = false;
@@ -112,10 +46,6 @@ public class Tools {
             navigationBarHeight = rs.getDimensionPixelSize(id);
         }
         return navigationBarHeight;
-    }
-
-    public static String getFormatNumber(float f) {
-        return getFormatNumber(f, 1);
     }
 
     public static String getFormatNumber(float f, int decimals) {
