@@ -95,14 +95,14 @@ public class RulerSurfaceView extends SurfaceView implements
     public RulerSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
-                R.styleable.FreeMeasureView);
+                R.styleable.RulerSurfaceView);
         init(typedArray);
     }
 
     public RulerSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
-                R.styleable.FreeMeasureView, defStyleAttr, 0);
+                R.styleable.RulerSurfaceView    , defStyleAttr, 0);
         init(typedArray);
     }
 
