@@ -45,7 +45,6 @@ public class RulerSurfaceView extends SurfaceView implements
     private SurfaceHolder surfaceHolder;
     private Thread drawThread;
     private boolean drawFlag = true;
-    private boolean drawing = false;
 
     private RulerCalculator rulerCalculator;
 
@@ -282,7 +281,6 @@ public class RulerSurfaceView extends SurfaceView implements
     @Override
     public void run() {
         while (drawFlag) {
-            drawing = true;
             Canvas canvas = null;
             synchronized (surfaceHolder) {
                 try {
